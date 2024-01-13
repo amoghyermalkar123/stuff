@@ -49,7 +49,14 @@ return require('packer').startup(function(use)
 		}
 	}
 	use ("ray-x/go.nvim")
-	use('jose-elias-alvarez/null-ls.nvim')
-	use('MunifTanjim/prettier.nvim')
-	use("EdenEast/nightfox.nvim")
+
+	-- one dark theme 
+	use 'navarasu/onedark.nvim'
+
+	-- lualine
+	use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
 end)
+

@@ -31,12 +31,24 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+lsp.format_on_save({
+  format_opts = {
+    async = false,
+    timeout_ms = 10000,
+  },
+  servers = {
+    ['tsserver'] = {'javascript', 'typescript'},
+  }
+})
+
 lsp.setup()
 
 lsp.setup_servers({
-  'rust_analyzer',
-  'gopls',
   'tsserver',
+  'csharp_ls',
+  'html',
+  'tailwindcss',
+'emmet_language_server'
 })
 
 vim.diagnostic.config({
@@ -45,5 +57,5 @@ vim.diagnostic.config({
 
 require("mason").setup()
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "gopls", "rust_analyzer", "tsserver" },
+    ensure_installed = { "lua_ls","tsserver", "csharp_ls", "html","tailwindcss",'emmet_language_server'} 
 }

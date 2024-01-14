@@ -26,8 +26,3 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 ### Installing rust:
 - Follow instructions on `https://www.rust-lang.org/tools/install`
 
-### Configuring Zellij
-- Install by - `cargo install --locked zellij`
-- Run - `mkdir ~/.config/zellij`
-- Add configs from the repo - `https://github.com/amoghyermalkar123/stuff`
-

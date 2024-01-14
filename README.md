@@ -1,20 +1,32 @@
-## nvim configs
-Add these configs in the nvim folder.
+### Installing Nvim:
+-  curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+-  chmod u+x nvim.appimage
+-  sudo cp ./nvim.appimage /usr/bin/nvim
+- cd /usr/bin/
+- sudo chown -R <username>:<username> nvim
 
-- OS wise configuration directory paths
-    - Ubuntu - .config/nvim
-    - Windows - C:\Users\<windows-usern>\AppData\Local\nvim
+### Configuring Neovim
+- create a directory `nvim` in `.config`
+- Run `git clone https://github.com/amoghyermalkar123/stuff nvim`
+- Open nvim and run `:PackerSync`
+- Make sure gcc is installed - `sudo apt install gcc` if not.
+- Install go, gopls, etc for LSP
 
-- Install packer.nvim
-    - linux - git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    - git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
+### Installing Go and Gopls
+- Run `wget https://go.dev/dl/go1.21.0.linux-amd64.tar.gz -O go.tar.gz`
+- Run `sudo  tar -C /usr/local -xzvf go.tar.gz`
+- Edit `~/.profile`
+```export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH```
+- Finally, `source ~/.profile`
+- Install gopls in via `:Mason`
 
-Repo for packer - https://github.com/wbthomason/packer.nvim
+### Installing rust:
+- Follow instructions on `https://www.rust-lang.org/tools/install`
 
-- open nvim by running `nvim`
-    - press colon ":" then type "PackerSync" and hit enter
+### Configuring Zellij
+- Install by - `cargo install --locked zellij`
+- Run - `mkdir ~/.config/zellij`
+- Add configs from the repo - `https://github.com/amoghyermalkar123/stuff`
 
-Every dependency will be installed 
-
-Enjoy!

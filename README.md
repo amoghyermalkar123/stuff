@@ -18,7 +18,8 @@
 - Edit `~/.profile`
 ```export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH```
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+```
 - Finally, `source ~/.profile`
 - Install gopls in via `:Mason`
 

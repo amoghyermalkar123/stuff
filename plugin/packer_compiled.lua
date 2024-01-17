@@ -95,6 +95,11 @@ _G.packer_plugins = {
     path = "/home/amogh/.local/share/nvim/site/pack/packer/start/go.nvim",
     url = "https://github.com/ray-x/go.nvim"
   },
+  ["gopher.nvim"] = {
+    loaded = true,
+    path = "/home/amogh/.local/share/nvim/site/pack/packer/start/gopher.nvim",
+    url = "https://github.com/olexsmir/gopher.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/amogh/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -175,6 +180,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/amogh/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-gitgutter"] = {
+    loaded = true,
+    path = "/home/amogh/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
+    url = "https://github.com/airblade/vim-gitgutter"
   }
 }
 

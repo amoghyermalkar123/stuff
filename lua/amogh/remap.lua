@@ -49,3 +49,12 @@ end)
 
 vim.keymap.set("n", "<leader>n", "<cmd>NvimTreeToggle<CR>");
 vim.keymap.set("n", "<leader>x", "<cmd>NvimTreeFindFile<CR>", { silent = true })
+vim.keymap.set("n", "<leader>b", "<cmd>NvimTreeFocus<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>", { silent = true })
+vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>", { silent = true })
+
+vim.keymap.set("n", "<leader>err", "<cmd>GoIfErr<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ta", "<cmd>GoTestsAll<CR>", { silent = true })
+vim.keymap.set("n", "<leader>to", "<cmd>GoTestAdd<CR>", { silent = true })
+vim.keymap.set("n", "<leader>cm", "<cmd>GoCmt<CR>", { silent = true })
+vim.keymap.set("n", "<leader>js", "<cmd>GoTagAdd json<CR>", { silent = true })

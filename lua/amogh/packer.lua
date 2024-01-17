@@ -64,4 +64,17 @@ return require('packer').startup(function(use)
     }
 
     use("windwp/nvim-ts-autotag")
+
+    use("airblade/vim-gitgutter")
+
+    use {
+        "olexsmir/gopher.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        build = function ()
+            vim.cmd [[!silent GoInstallDeps]]
+        end,
+    }
 end)

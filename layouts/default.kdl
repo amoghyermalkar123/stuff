@@ -1,16 +1,25 @@
 layout {
-    pane split_direction="vertical" {
-        pane stacked=true {
-            pane size="70%" cwd="/home/amogh/projects/employezy-ui" focus=true name="EE UI" command="nvim" {
-                    args "."
-            }
-            pane size="70%" cwd="/home/amogh/projects/ee-funcs" name="EE Other" command="nvim" {
-                    args "."
-            }
-        }
-        pane size="30%" cwd="/home/amogh/projects/employezy-ui" name="UI SERVER" command="npm" start_suspended=false {
-                args "run" "dev"
+    default_tab_template {
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
         }
     }
-    pane size=7 cwd="/home/amogh/projects/employezy-ui" name="util"
+
+    tab {
+        pane split_direction="vertical" {
+            pane stacked=true {
+                pane size="70%" cwd="/home/amogh/projects/employezy-ui" focus=true name="EE UI" command="nvim" {
+                        args "."
+                }
+                pane size="70%" cwd="/home/amogh/projects/ee-funcs" name="EE Other" command="nvim" {
+                        args "."
+                }
+            }
+            pane size="30%" cwd="/home/amogh/projects/employezy-ui" name="UI SERVER" command="npm" start_suspended=false {
+                    args "run" "dev"
+            }
+        }
+        pane size=7 cwd="/home/amogh/projects/employezy-ui" name="util"
+    }
 }

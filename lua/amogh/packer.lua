@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
 
     use("airblade/vim-gitgutter")
 
+    -- qol go
     use {
         "olexsmir/gopher.nvim",
         requires = {
@@ -77,4 +78,7 @@ return require('packer').startup(function(use)
             vim.cmd [[!silent GoInstallDeps]]
         end,
     }
+
+    -- qol rust
+    -- todo
 end)

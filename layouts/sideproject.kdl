@@ -8,16 +8,16 @@ layout {
     tab split_direction="Vertical" {
         pane split_direction="vertical" {
             pane stacked=true {
-                pane size="70%" cwd="/home/amogh/projects/BYOX" focus=true name="BYOX" command="nvim" {
+                pane size="70%" cwd="/home/amogh/projects/draw1" focus=true name="draw1" command="nvim" {
                     args "."
                 }
-                pane size="70%" cwd="/home/amogh/projects/BYOX" name="TESTS" command="go" start_suspended=true {
-                    args "test" "-v" "./..."
+                pane size="70%" cwd="/home/amogh/projects/draw1" name="service" {
                 }
             }
         }
         floating_panes {
-            pane {
+            pane cwd="/home/amogh/projects/draw1" name="server" command="bun" {
+                args "run" "tauri" "dev"
                 x 25
                 y "15%"
                 width 125

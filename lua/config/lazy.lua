@@ -6,17 +6,58 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-
+vim.filetype.add({ extension = { templ = "templ" } })
+-- require("lspconfig").templ.setup({})
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.lang.go" },
+    { import = "lazyvim.plugins.extras.lang.rust" },
     -- import/override with your plugins
     { import = "plugins" },
+    -- add colorscheme
+    {
+      "rebelot/kanagawa.nvim",
+      opts = {
+        setup = {},
+      },
+    },
+    -- Configure LazyVim to load colorscheme
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "kanagawa-dragon",
+      },
+    },
+    -- TEMPL CONFIG
+    {
+      "neovim/nvim-lspconfig",
+      opts = {
+        servers = {
+          templ = {},
+        },
+      },
+    },
+    {
+      -- Autocompletion
+      "hrsh7th/nvim-cmp",
+      dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+      },
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        vim.list_extend(opts.ensure_installed, {
+          "templ",
+        })
+      end,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
@@ -43,5 +84,56 @@ require("lazy").setup({
         "zipPlugin",
       },
     },
+  },
+})
+
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+local lspconfig = require("lspconfig")
+
+lspconfig.templ.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+  init_options = { userLanguages = { templ = "html" } },
+})
+
+lspconfig.html.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
+})
+
+lspconfig.htmx.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
+})
+
+local cmp = require("cmp")
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = "nvim_lsp" },
+  }),
+})
+
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "templ" },
+  sync_install = false,
+  auto_install = true,
+  ignore_install = { "javascript" },
+  highlight = {
+    enable = true,
   },
 })

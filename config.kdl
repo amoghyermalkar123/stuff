@@ -3,7 +3,10 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        bind "Alt l" {SwitchToMode "Locked";}
+        bind "Alt h" {SwitchToMode "Locked";}
     }
+
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
@@ -144,12 +147,13 @@ keybinds {
         bind "Space" { NextSwapLayout; }
         bind "x" { CloseFocus; SwitchToMode "Normal"; }
     }
-    shared_except "locked" {
-        bind "Ctrl g" { SwitchToMode "Locked"; }
+    shared {
+        // bind "Ctrl g" { SwitchToMode "Locked"; }
         bind "Ctrl q" { Quit; }
         bind "Alt n" { NewPane; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
         bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+
         bind "Alt j" "Alt Down" { MoveFocus "Down"; }
         bind "Alt k" "Alt Up" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
@@ -282,11 +286,24 @@ themes {
     black "#292c3c" // Mantle
     white "#c6d0f5"
   }
+  kanagawa {
+        fg "#DCD7BA"
+        bg "#1F1F28"
+        red "#C34043"
+        green "#76946A"
+        yellow "#FF9E3B"
+        blue "#7E9CD8"
+        magenta "#957FB8"
+        orange "#FFA066"
+        cyan "#7FB4CA"
+        black "#16161D"
+        white "#DCD7BA"
+    }
 }
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "catppuccin-frappe"
+theme "kanagawa"
 
 // The name of the default layout to load on startup
 // Default: "default"

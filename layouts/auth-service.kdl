@@ -1,0 +1,28 @@
+layout {
+    default_tab_template {
+        children
+            pane size=2 borderless=true {
+                plugin location="zellij:status-bar"
+            }
+    }
+    tab split_direction="Vertical" hide_floating_panes=true{
+        pane split_direction="vertical" {
+            pane stacked=true {
+                pane size="70%" cwd="/home/amogh/authorization-service" focus=true name="SERVICE" command="nvim" {
+                    args "."
+                }
+                pane size="70%" cwd="/home/amogh/authorization-service" name="GIT" command="gitui"  {
+                }
+            }
+        }
+        floating_panes { 
+            pane cwd="/home/amogh/authorization-service" name="TESTS" command="go" start_suspended=true {
+                args "test" "-v" "./..."
+                x 25
+                y "15%"
+                width 125
+                height "60%"
+            }
+        }
+    }
+}

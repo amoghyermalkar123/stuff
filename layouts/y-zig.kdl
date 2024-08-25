@@ -1,0 +1,28 @@
+layout {
+  default_tab_template {
+    pane size=1 borderless=true {
+      plugin location="zellij:status-bar"
+    }
+    children
+    pane size=1 borderless=true {
+      plugin location="zellij:compact-bar"
+    }
+  }
+  tab hide_floating_panes=true focus=true{
+    pane split_direction="vertical" {
+      pane stacked=true {
+        pane size="100%" cwd="/home/amogh/y-zig" name="code" focus=true command="nvim" {
+          args "."
+        }
+        pane size="100%" cwd="/home/amogh/y-zig" name="git" command="lazygit"  {
+        }
+      }
+    }
+
+  }
+  tab hide_floating_panes=true{
+    pane size="100%" cwd="/home/amogh/y-zig" name="test" {
+    }
+  }
+
+}

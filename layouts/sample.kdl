@@ -1,0 +1,14 @@
+layout {
+    pane split_direction="vertical" {
+        pane
+        pane
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+}
+keybinds {
+    shared {
+        bind "Alt 1" { Run "lazygit"; }
+    }
+}

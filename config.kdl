@@ -6,19 +6,21 @@ keybinds clear-defaults=true {
     }
 
     locked {
+        // base
         bind "Ctrl g" { SwitchToMode "Normal"; }
         unbind "Ctrl q"
+        // tabs
         bind "Ctrl t" { NewTab; }
-        bind "Alt h"  { GoToPreviousTab; }
-        bind "Alt l"  { GoToNextTab; }
+        bind "Alt 1"  { GoToPreviousTab; }
+        bind "Alt 2"  { GoToNextTab; }
+        // search
         bind "Alt s" { SwitchToMode "EnterSearch"; }
-    }
-    resize {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
-        bind "h" "Left" { Resize "Increase Left"; }
-        bind "j" "Down" { Resize "Increase Down"; }
-        bind "k" "Up" { Resize "Increase Up"; }
-        bind "l" "Right" { Resize "Increase Right"; }
+        // panes
+        bind "Alt h" "Left" { MoveFocus "Left"; }
+        bind "Alt l" "Right" { MoveFocus "Right"; }
+        bind "Alt j" "Down" { MoveFocus "Down"; }
+        bind "Alt k" "Up" { MoveFocus "Up"; }
+
     }
     pane {
         bind "Ctrl p" { SwitchToMode "Normal"; }

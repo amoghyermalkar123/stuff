@@ -3,9 +3,6 @@ layout {
         pane
         pane
     }
-    pane size=1 borderless=true {
-        plugin location="zellij:compact-bar"
-    }
 }
 keybinds {
     shared {

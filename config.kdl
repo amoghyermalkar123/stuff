@@ -1,5 +1,5 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
-keybinds clear-defaults=true {
+keybinds  {
     normal {
         bind "Ctrl g" {SwitchToMode "Locked";}
         bind "Ctrl q" {Quit;}
@@ -16,10 +16,10 @@ keybinds clear-defaults=true {
         // search
         bind "Alt s" { SwitchToMode "EnterSearch"; }
         // panes
-        bind "Alt h" "Left" { MoveFocus "Left"; }
-        bind "Alt l" "Right" { MoveFocus "Right"; }
-        bind "Alt j" "Down" { MoveFocus "Down"; }
-        bind "Alt k" "Up" { MoveFocus "Up"; }
+        bind "Alt h"  { MoveFocus "Left"; }
+        bind "Alt l"  { MoveFocus "Right"; }
+        bind "Alt j"  { MoveFocus "Down"; }
+        bind "Alt k"  { MoveFocus "Up"; }
 
     }
     pane {

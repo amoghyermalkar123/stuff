@@ -11,15 +11,13 @@ keybinds  {
         unbind "Ctrl q"
         // tabs
         bind "Ctrl t" { NewTab; }
-        bind "Alt 1"  { GoToPreviousTab; }
-        bind "Alt 2"  { GoToNextTab; }
         // search
         bind "Alt s" { SwitchToMode "EnterSearch"; }
         // panes
-        bind "Alt h"  { MoveFocus "Left"; }
-        bind "Alt l"  { MoveFocus "Right"; }
-        bind "Alt j"  { MoveFocus "Down"; }
-        bind "Alt k"  { MoveFocus "Up"; }
+        bind "Alt h"  { MoveFocusOrTab  "Left"; }
+        bind "Alt l"  { MoveFocusOrTab "Right"; }
+        bind "Alt j"  { MoveFocusOrTab "Down"; }
+        bind "Alt k"  { MoveFocusOrTab "Up"; }
 
     }
     pane {

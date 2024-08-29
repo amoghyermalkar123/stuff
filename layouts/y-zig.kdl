@@ -11,18 +11,18 @@ layout {
   tab hide_floating_panes=true focus=true{
     pane split_direction="vertical" {
       pane stacked=true {
-        pane size="100%" cwd="/home/amogh/y-zig" name="code" focus=true command="nvim" {
+        pane size="100%" cwd="/home/amogh/projects/y-zig" name="code" focus=true command="nvim" {
           args "."
         }
-        pane size="100%" cwd="/home/amogh/y-zig" name="git" command="lazygit"  {
+        pane size="100%" cwd="/home/amogh/projects/y-zig" name="git" command="lazygit"  {
         }
       }
     }
 
   }
   tab hide_floating_panes=true{
-    pane size="100%" cwd="/home/amogh/y-zig" name="test" {
-    }
+        pane size="100%" cwd="/home/amogh/projects/y-zig" name="test" {
+        }
   }
 
 }

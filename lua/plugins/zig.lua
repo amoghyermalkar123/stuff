@@ -1,3 +1,4 @@
+-- File: lua/plugins/zig.lua
 return {
   -- Base Zig support
   {
@@ -15,13 +16,10 @@ return {
     opts = {
       servers = {
         zls = {
-          -- ZLS (Zig Language Server) settings
           settings = {
             zig = {
               checkOnSave = true,
-              -- Enable semantic tokens for better highlighting
               semanticTokens = true,
-              -- Enable inlay hints for better code understanding
               inlayHints = {
                 parameterHints = true,
                 typeHints = true,
@@ -35,16 +33,19 @@ return {
     },
   },
 
-  -- Ensure ZLS is installed via Mason
+  -- Mason setup for LSP
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       opts.ensure_installed = opts.ensure_installed or {}
-      table.insert(opts.ensure_installed, "zls")
+      vim.list_extend(opts.ensure_installed, {
+        "zls", -- Zig Language Server
+        "codelldb", -- Debugger (still needed for dap.lua)
+      })
     end,
   },
 
-  -- Add Zig to Treesitter
+  -- Treesitter configuration
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -63,17 +64,16 @@ return {
     },
   },
 
-  -- Configure debugging support (requires nvim-dap)
+  -- Add additional useful Zig-specific keymaps
   {
-    "mfussenegger/nvim-dap",
-    optional = true,
-    dependencies = {
-      {
-        "williamboman/mason.nvim",
-        opts = function(_, opts)
-          opts.ensure_installed = opts.ensure_installed or {}
-          table.insert(opts.ensure_installed, "codelldb") -- For Zig debugging
-        end,
+    "LazyVim/LazyVim",
+    opts = {
+      -- Add any custom keymaps here
+      keys = {
+        -- Example keymap for running tests
+        { "<leader>zt", "<cmd>!zig test %<cr>", desc = "Zig Test Current File" },
+        -- Example keymap for building
+        { "<leader>zb", "<cmd>!zig build<cr>", desc = "Zig Build" },
       },
     },
   },

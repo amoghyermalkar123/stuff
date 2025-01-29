@@ -7,7 +7,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 vim.filetype.add({ extension = { templ = "templ" } })
--- require("lspconfig").templ.setup({})
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -18,23 +17,62 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.rust" },
+    { import = "lazyvim.plugins.extras.lang.python" },
+    {
+      "sakhnik/nvim-gdb",
+    },
     -- import/override with your plugins
     { import = "plugins" },
-    -- add colorscheme
+    -- THEME OPTIONS
+    {
+      "EdenEast/nightfox.nvim",
+    },
     {
       "rebelot/kanagawa.nvim",
       opts = {
         setup = {},
       },
     },
+    { "rose-pine/neovim", name = "rose-pine" },
+    { "catppuccin/nvim", name = "catppuccin" },
+    {
+      "sho-87/kanagawa-paper.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    { "luisiacc/gruvbox-baby" },
+    { "savq/melange-nvim" },
+    { "aliqyan-21/darkvoid.nvim" },
+    {
+      "killitar/obscure.nvim",
+      lazy = false,
+      priority = 1000,
+      opts = {},
+    },
+    {
+      "0xstepit/flow.nvim",
+      lazy = false,
+      priority = 1000,
+      tag = "vX.0.0",
+      opts = {},
+    },
+    { "datsfilipe/vesper.nvim" },
+    {
+      "vague2k/vague.nvim",
+      config = function()
+        require("vague").setup({
+          -- optional configuration here
+        })
+      end,
+    },
     -- Configure LazyVim to load colorscheme
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "kanagawa-dragon",
+        colorscheme = "obscure",
       },
     },
-    -- TEMPL CONFIG
     {
       "neovim/nvim-lspconfig",
       opts = {
@@ -44,12 +82,16 @@ require("lazy").setup({
       },
     },
     {
+      "ziglang/zig.vim",
+    },
+    {
       -- Autocompletion
       "hrsh7th/nvim-cmp",
       dependencies = {
         "hrsh7th/cmp-nvim-lsp",
       },
     },
+    -- TEMPL CONFIG
     {
       "nvim-treesitter/nvim-treesitter",
       opts = function(_, opts)
@@ -112,6 +154,13 @@ lspconfig.htmx.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "html", "templ" },
+})
+
+lspconfig.zls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "zig", "zon" },
+  enable_build_on_save = true,
 })
 
 local cmp = require("cmp")

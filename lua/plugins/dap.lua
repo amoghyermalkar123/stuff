@@ -122,10 +122,10 @@ return {
       }
 
       -- Debug keymaps
-      vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-      vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
-      vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
-      vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+      vim.keymap.set("n", "<Leader>1", dap.continue, { desc = "Debug: Start/Continue" })
+      vim.keymap.set("n", "<Leader>2", dap.step_over, { desc = "Debug: Step Over" })
+      vim.keymap.set("n", "<Leader>4", dap.step_into, { desc = "Debug: Step Into" })
+      vim.keymap.set("n", "<Leader>bt", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
       vim.keymap.set("n", "<Leader>dt", dapui.toggle, { desc = "Debug: Toggle UI" })
 
       -- Add test-specific keymaps

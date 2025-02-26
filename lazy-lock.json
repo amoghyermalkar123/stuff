@@ -42,6 +42,7 @@
   "trouble.nvim": { "branch": "main", "commit": "6f380b8826fb819c752c8fd7daaee9ef96d4c689" },
   "ts-comments.nvim": { "branch": "main", "commit": "872dcfa0418f4a33b7437fb4d9f4e89f2f000d74" },
   "vague.nvim": { "branch": "main", "commit": "aa744dbf7bfc768da3dd232ccde3b337182903dc" },
+  "vscode.nvim": { "branch": "main", "commit": "298c5ce4750a256ea208b72d7a472b8824ef2a49" },
   "which-key.nvim": { "branch": "main", "commit": "0e76a87ac51772569aec678dc74baa8e2a86100c" },
   "zig.vim": { "branch": "master", "commit": "f023e86b042c0d5bef68b9f0651144a6bf6d642e" }
 }

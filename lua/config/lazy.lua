@@ -34,11 +34,16 @@ require("lazy").setup({
         })
       end,
     },
+    {
+      "Mofiqul/vscode.nvim",
+      lazy = false,
+      priority = 1000,
+    },
     -- Configure LazyVim to load colorscheme
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "vague",
+        colorscheme = "vscode",
         lazy = false,
       },
     },
